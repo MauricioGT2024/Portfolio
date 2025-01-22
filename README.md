@@ -1,6 +1,4 @@
 # Portfolio Personal - Mauricio GT
-**Última actualización:** 2025-01-22 16:11:51 UTC
-**Desarrollador:** @MauricioGT2024
 
 ## 🚀 Vista General
 
