@@ -1,48 +1,65 @@
-# Astro Starter Kit: Basics
+# Portfolio Personal - Mauricio GT
+**Última actualización:** 2025-01-22 16:11:51 UTC
+**Desarrollador:** @MauricioGT2024
 
-```sh
-npm create astro@latest -- --template basics
-```
+## 🚀 Vista General
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Portfolio personal desarrollado con Astro y Tailwind CSS, presentando una colección de proyectos y habilidades en desarrollo web.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🛠️ Tecnologías Utilizadas
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- **Framework:** [Astro](https://astro.build/)
+- **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animaciones:** [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/)
+- **Iconos:** Emojis nativos
+- **Formulario:** FormSubmit.co
 
-## 🚀 Project Structure
+## 📂 Estructura del Proyecto
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
+portfolio/
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│ ├── components/
+│ │ ├── Header.astro
+│ │ ├── About.astro
+│ │ ├── Skills.astro
+│ │ ├── Projects.astro
+│ │ └── ContactForm.astro
+│ ├── layouts/
+│ │ └── Layout.astro
+│ └── pages/
+│ └── index.astro
+├── public/
+│ └── favicon.svg
+├── astro.config.mjs
+├── package.json
+├── tailwind.config.cjs
+└── README.md
+
+## ⚙️ Instalación
+
+1. **Clonar el repositorio**
+```bash
+git clone https://github.com/MauricioGT2024/portfolio.git
+cd portfolio
+
+2. **Instalar dependencias**
+```bash
+npm install
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+3. **Iniciar el servidor**
+```bash
+npm run dev
+```
 
-## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+ 
+**📞 Contacto**
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+GitHub: [MauricioGT2024](https://github.com/MauricioGT2024)
 
-## 👀 Want to learn more?
+Discord: [mauricio0792](https://discord.com/users/mauricio0392)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Descripcion Del Proyecto
+
+**Portfolio personal que muestra mi trayectoria como desarrollador Full Stack. Diseñado y desarrollado con tecnologías modernas como Astro y Tailwind CSS, este sitio representa mi compromiso con el código limpio y la experiencia de usuario.**
