@@ -1,11 +1,23 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Projects from '../components/Projects.astro';
-import Layout from '../layouts/Layout.astro'
+import ContactForm from '../components/ContactForm.astro';
+import Skills from '../components/Skills.astro';
+import About from '../components/About.astro';
 ---
 
-<Layout title="Portfolio">
-	<Hero/>
-	<Projects/>
+<Layout 
+  title="Mauricio - Desarrollador Web"
+  description="Portfolio profesional de Mauricio. Desarrollador web especializado en crear experiencias web modernas y atractivas."
+>
+  <main>
+    <Hero />
+    <About/>
+    <Skills/>
+    <Projects />
+    <section class="py-20">
+        <ContactForm />
+    </section>
+  </main>
 </Layout>

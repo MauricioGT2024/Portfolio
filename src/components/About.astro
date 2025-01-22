@@ -1,0 +1,74 @@
+---
+const currentDate = "2025-01-21 16:16:36";
+const userLogin = "MauricioGT2024";
+
+const stats = [
+  { label: "Años de experiencia", value: "4+" },
+  { label: "Proyectos completados", value: "50+" },
+  { label: "Clientes satisfechos", value: "30+" },
+  { label: "Contribuciones", value: "100+" },
+];
+---
+
+<section id="about" class="py-20 bg-gray-900">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-8">
+      <p class="text-sm text-gray-400 font-mono">{currentDate}</p>
+      <p class="text-sm text-primary font-mono">@{userLogin}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Imagen y estadísticas -->
+      <div data-aos="fade-right" class="space-y-8">
+        <div class="relative">
+          <div class="w-full h-80 rounded-lg overflow-hidden">
+            <img
+              src="/foto.png"
+              alt="Sobre mí"
+              class="w-80 h-80 object-cover"
+            />
+          </div>
+          <div class="absolute -bottom-4 -right-4 w-40 h-40 bg-blue-500/20 rounded-full filter blur-2xl"></div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          {stats.map((stat) => (
+            <div class="text-center p-4 bg-gray-800 rounded-lg">
+              <div class="text-3xl font-bold text-primary mb-2">{stat.value}</div>
+              <div class="text-sm text-gray-400">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Contenido -->
+      <div data-aos="fade-left" class="space-y-6">
+        <h2 class="text-4xl font-bold">
+          <span class="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+            Sobre Mí
+          </span>
+        </h2>
+        
+        <p class="text-gray-300">
+          Soy un desarrollador Full Stack apasionado por crear soluciones web innovadoras y eficientes. 
+          Con más de 4 años de experiencia, me especializo en tecnologías modernas como React, Node.js.
+        </p>
+
+        <p class="text-gray-300">
+          Mi enfoque se centra en la creación de experiencias de usuario excepcionales 
+          y en la implementación de soluciones técnicas robustas que impulsan el éxito 
+          de los proyectos.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="../../Archivos/Curriculum Vitae.pdf" download="Curriculum Vitae" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105">
+            Descargar CV
+          </a>
+          <button class="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105">
+            Ver más
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

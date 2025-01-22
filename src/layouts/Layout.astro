@@ -1,28 +1,192 @@
 ---
+// Layout.astro
+import Header from '../components/Header.astro';
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
   title: string;
+  description?: string;
 }
-const { title } = Astro.props;
+
+const { 
+  title, 
+  description = "Portfolio personal de Mauricio GT - Desarrollador Full Stack"
+} = Astro.props;
+
+// Datos globales
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <!-- Añadir AOS para animaciones -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  </head>
-  <body class="bg-gray-900 text-white">
-    <slot />
+    <meta name="description" content={description} />
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Título -->
+    <title>{title}</title>
+    
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    
+    <!-- View Transitions -->
+    <ViewTransitions />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-gray-900 text-white antialiased">
+    <!-- Header -->
+    <Header/>
+    
+    <!-- Main Content -->
+    <main class="pt-16"> <!-- pt-16 para compensar el header fijo -->
+      <slot />
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <!-- Información del usuario y fecha -->
+          <div class="text-center md:text-left mb-4 md:mb-0">
+          </div>
+          
+          <!-- Links -->
+          <div class="flex space-x-6">
+            <a 
+              href="https://github.com/MauricioGT2024" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              GitHub
+            </a>
+            <a 
+              href="https://linkedin.com/in/mauriciogt2024" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              LinkedIn
+            </a>
+            <a 
+              href="#contact" 
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              Contacto
+            </a>
+          </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="text-center mt-8 text-gray-400 text-sm">
+          © {new Date().getFullYear()} Mauricio GT. Todos los derechos reservados.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
     <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script is:inline>
+      // Inicializar AOS
       AOS.init({
         duration: 800,
         once: false,
+        mirror: true,
+        offset: 100,
+        delay: 100,
       });
+
+      // Reiniciar AOS en cambios de vista
+      document.addEventListener('astro:after-swap', () => {
+        AOS.refresh();
+      });
+
+      // Manejar el tema oscuro/claro
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
+      // Observador de scroll para el header
+      const header = document.querySelector('header');
+      const scrollObserver = new IntersectionObserver(
+        ([entry]) => {
+          header.classList.toggle('header-scrolled', !entry.isIntersecting);
+        },
+        { threshold: 1 }
+      );
+
+      const topSection = document.querySelector('#home');
+      if (topSection) {
+        scrollObserver.observe(topSection);
+      }
     </script>
   </body>
 </html>
+
+<style is:global>
+  :root {
+    --primary: #3B82F6;
+    --secondary: #8B5CF6;
+  }
+
+  /* Scrollbar personalizada */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1F2937;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #3B82F6;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2563EB;
+  }
+
+  /* Selección de texto */
+  ::selection {
+    background: var(--primary);
+    color: white;
+  }
+
+  /* Estilos base */
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Animaciones para el header */
+  .header-scrolled {
+    @apply shadow-lg backdrop-blur-md bg-gray-900/90;
+  }
+
+  /* Animaciones AOS personalizadas */
+  [data-aos] {
+    pointer-events: none;
+  }
+  
+  [data-aos].aos-animate {
+    pointer-events: auto;
+  }
+
+  /* Utilidades */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+</style>
