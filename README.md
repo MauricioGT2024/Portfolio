@@ -41,7 +41,7 @@ portfolio/
 ```bash
 git clone https://github.com/MauricioGT2024/portfolio.git
 cd portfolio
-
+```
 2. **Instalar dependencias**
 ```bash
 npm install
